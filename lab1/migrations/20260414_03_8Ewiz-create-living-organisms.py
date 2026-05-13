@@ -10,7 +10,7 @@ steps = [
     step("""
         Create table living_organisms(
             id bigserial primary key,
-            name varchar(255) unique not null,
+            name varchar(255) unique not null CHECK (length(trim(name)) > 0),
             level_id int references living_organism_levels(id) not null,
             parent_id int references living_organisms(id)
         );

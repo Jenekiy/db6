@@ -39,7 +39,7 @@ def build_tree_recursive(items, parent_id):
     for item in items:
         if item['parent_id'] == parent_id:
             node = item.copy()
-            node['children'] = build_tree_recursive(items, node['id'])
+            node['child'] = build_tree_recursive(items, node['id'])
             tree.append(node)
     return tree
 
